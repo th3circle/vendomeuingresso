@@ -1,0 +1,107 @@
+:root {
+  --primaria: #AFA4CE !important;
+  --secundaria: #9186b0 !important;
+}
+
+* {
+	font-family: Poppins;
+}
+
+.module{
+	padding: 20px 20px;
+	border-radius: 25px;
+	background: #fff;
+	box-shadow:  5px 5px 18px #d3d3d345, -5px -5px 18px #ededed45;
+	font-size: 0.9rem !important;
+}
+
+label.input {
+	color: #00000090;
+	position: relative;
+	font-size: 0.65rem !important;
+	font-family: Poppins !important;
+	margin-bottom: -7px;
+	background: white;
+	padding: 0 5;
+	left: 10px;
+}
+
+input,
+select {
+	width: 100%;
+	padding: 10px 15px;
+	font-weight: 300 !important;
+	font-size: 0.8rem !important;
+	border: 1px solid #00000030;
+	border-radius: 15px;
+}
+
+input:focus {
+    outline: none;
+}
+
+b.req {
+	color: var(--secundaria);
+	font-weight: 300;
+}
+
+.dropdown-menu {
+	background: white;
+	padding: 15px 0px !important;
+	border: none;
+	border-radius: 25px;
+	font-size: 0.8rem !important;
+	box-shadow: 0px 0px 45px -13px rgba(0,0,0,0.28);
+	overflow: hidden;
+}
+
+li.dropdown-item {
+	font-size: 0.8rem !important;
+	padding-left: 20px !important;
+	cursor: pointer;
+}
+
+.dropdown-item a {
+	text-decoration: none;
+	color: #000000de;
+}
+
+.dropdown-item:active {
+	background: #00000005;
+	color: #000000de;
+}
+
+.dropdown-item svg {
+	margin-right: 5px;
+}
+
+table {
+	font-weight: 300;
+	font-size: 0.8rem !important;
+	margin-bottom: 0px !important;
+}
+
+table th {
+	font-weight: 400 !important;
+	width: auto !important;
+	color: #00000090 !important;
+	text-align: center;
+	border-color: #00000002 !important;
+}
+
+table td {
+	font-weight: 400 !important;
+	color: #000000 !important;
+	text-align: center;
+	border-color: #00000002 !important;
+}
+
+td.actions svg {
+	margin-left: 7px;
+	color: #00000070;
+	cursor: pointer;
+}
+
+td.left, th.left { text-align: left; }
+td.center, th.center { text-align: center; }
+td.right, th.right { text-align: right; }

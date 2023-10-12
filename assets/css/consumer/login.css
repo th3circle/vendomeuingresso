@@ -1,0 +1,130 @@
+body {
+	background: var(--primaria);
+}
+
+.login_box {
+	width: 100%;
+	padding: 35px;
+	background: #FFFFFF;
+/*	border-top: 20px solid var(--secundaria);*/
+	border-radius: 0px 0px 35px 35px;
+}
+
+.login_logo {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.login_box h2 {
+	font-weight: 400;
+	font-size: 2rem !important;
+	margin-bottom: 15px;
+}
+
+.login_box p {
+	width: 80%;
+	color: #00000090;
+	margin-bottom: 20px;
+	font-weight: 300;
+	font-size: 0.8rem !important;
+}
+
+@media screen and (max-width: 767px) {
+  .login_box p {
+  	width: 100%;
+  }
+  .align {
+  	transform: translateY(-65%);
+  }
+  .memphis_bg {
+  	display: none !important;
+  }
+}
+
+.memphis_bg {
+	position: fixed;	
+	z-index: -1;
+	height: 750px;
+	opacity: 0.06;
+	left: -90px;
+	bottom: -120px;
+}
+
+div.input{
+	color: white;
+/*	background: var(--primaria);*/
+	border-radius: 0px 15px 15px 0px;
+	padding-left: 12px;
+	margin-top: 10px;
+}
+
+div.input input{
+	margin-top: 0px;
+	border-radius: 0px 15px 15px 0px;
+	border-top: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+	border-bottom: 1px solid #dfdfdf;
+	border-left: none;
+}
+
+div.input .left_input{
+	padding: 0px;
+	border-radius: 15px 0px 0px 15px;
+	background: #dfdfdf;
+	text-align: center;
+}
+
+div.input .right_input{
+	padding-left: 0px;
+	text-align: center;
+}
+
+.top_loginbox{
+/*	background: var(--secundaria);*/
+	font-size: 0.8rem !important;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+}
+
+.top_loginbox .active{
+	background: var(--secundaria) !important;
+}
+
+.top_loginbox .normal{
+	background: #00000030;
+}
+
+.top_loginbox label{
+	padding: 15px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-weight: 300 !important;
+}
+
+p.error_message{
+	margin-top: 15px;
+	text-align: center;
+	margin-bottom: 0px !important;
+	font-weight: 300 !important;
+	color: red;
+	width: 100%;
+}
+
+.button_bottom_form{
+	font-size: 0.8rem !important;
+	font-weight: 300;
+	cursor: pointer;
+	opacity: 0.8;
+	color: var(--primaria);
+}
+
+p.cadastrar{
+	font-size: 0.9rem !important;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	cursor: pointer;
+	width: 100%;
+	font-weight: 400;
+	text-align: center;
+}

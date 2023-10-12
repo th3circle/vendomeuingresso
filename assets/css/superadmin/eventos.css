@@ -1,0 +1,12 @@
+label.status { 
+	padding: 2px 8px;
+	border-radius: 10px;
+	font-size: 0.6rem !important;
+	border: 1px solid black;
+}
+
+label.status_0 { color: #1e1e1e; border-color: #1e1e1e; }
+label.status_1 { color: green; border-color: green; }
+label.status_2 { color: green; border-color: green; }
+label.status_3 { color: #ffb100; border-color: #ffb100; }
+label.status_4 { color: #0a0949; border-color: #0a0949; }

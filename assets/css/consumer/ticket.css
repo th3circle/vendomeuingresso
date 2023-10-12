@@ -1,0 +1,110 @@
+button.my_tickets{
+	padding: 8px 15px;
+	border-radius: 15px;
+	margin-left: 10px;
+	font-size: 0.8rem;
+	background: var(--primaria);
+	border: 1px solid var(--primaria);
+	color: white;
+}
+
+img.qrCode {
+	width: 100%;
+}
+
+.titular {
+	font-size: 1.1rem;
+	font-weight: 400 !important;
+	color: #000000ae;
+}
+
+.codigo {
+	font-size: 1rem !important;
+	color: #000000de;
+	margin-bottom: 5px;
+}
+
+.my_tickets {
+	margin-left: 0px !important; 
+	margin-right: 15px !important;
+}
+
+div.capa {
+	width: 100%;
+	height: 300px;
+	background-size: cover !important;
+	background-position: center center !important;
+	border-radius: 25px;
+}
+
+.valor {
+	margin-bottom: 0 !important;
+	font-size: 1rem !important;
+	margin-top: 5px;
+}
+
+p {
+	font-size: 0.5rem !important;
+	margin-bottom: 5px;
+	color: #00000070;
+	padding: 0 30px;
+}
+
+.evento {
+	font-size: 1.3rem !important;
+	margin-bottom: 5px;
+}
+
+.setor {
+	font-size: 1rem !important;
+	margin-top: ;
+	color: #00000096;
+}
+
+.barcode {
+	width: 90%;
+	height: 45px;
+	margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+	.mobilePadding {
+		padding: 20px 40px;
+	}
+	.barcode {
+		width: 100% !important;
+	}
+}
+
+@media print {
+    .hiddenPrint {
+        display: none !important;
+    }
+}
+
+p.descTransfer {
+	font-size: 0.8rem !important;
+	color: #000000ae;
+	padding: 0px;
+	margin-bottom: 25px;
+}
+
+div.ticketButton {
+	text-align: right;
+	margin-top: 20px;
+}
+
+div.ticketButton button {
+	margin-right: 0px !important;
+	padding: 13px 22px;
+	border-radius: 20px;
+}
+
+.modal-content {
+	border-radius: 25px;
+	border: none !important;
+}
+
+.modal-body {
+	padding: 40px !important;
+}

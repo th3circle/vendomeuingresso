@@ -1,0 +1,182 @@
+* { font-family: Poppins !important; }
+
+*:focus { outline: none; }
+
+.align{
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+}
+
+form {
+  margin-bottom: 0px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: 300 !important;
+  font-size: 0.9rem !important;
+  border: 1px solid #00000060;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  font-weight: 300 !important;
+  font-size: 0.9rem !important;
+  border: 1px solid #00000060;
+}
+
+button.primario {
+  width: 100%;
+  padding: 15px;
+/*  border-radius: 15px;*/
+  font-weight: 300 !important;
+  font-size: 0.9rem !important;
+  border: 1px solid var(--primaria);
+  background: var(--primaria);
+  color: white;
+}
+
+button.border {
+  width: 100%;
+  padding: 15px;
+/*  border-radius: 15px;*/
+  font-weight: 300 !important;
+  font-size: 0.9rem !important;
+  border: 1px solid var(--primaria) !important;
+  background: transparent !important;
+  color: var(--primaria) !important;
+}
+
+p.copy {
+  left: 50%;
+  bottom: 1%;
+  color: #ffffff;
+  position: fixed;
+  transform: translateX(-50%);
+  font-weight: 200 !important;
+  font-size: 0.6rem !important;
+}
+
+p.copy a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300 !important;
+}
+
+.title_module{
+  margin-top: 10px;
+}
+
+.module table{
+  font-size: 0.8rem !important;
+  font-weight: 400;
+}
+
+.module tr,
+.module td {
+  border-color: #00000005;
+}
+
+.module th{
+  color: #00000030;
+  font-weight: 400;
+  width: 90px;
+}
+
+td.status{
+  text-align: center;
+}
+
+td.status label{
+  font-size: 0.7rem !important;
+  padding: 3px 10px;
+  border: 1px solid green;
+  color: green;
+  border-radius: 10px;
+}
+
+label.aguardando{
+  border-color: #FFA500 !important;
+  color: #FFA500 !important;
+}
+
+label.caminho{
+  border-color: #32CD32 !important;
+  color: #32CD32 !important;
+}
+
+label.entregue{
+  border-color: #008000 !important;
+  color: #008000 !important;
+}
+
+label.problema{
+  border-color: #FF0000 !important;
+  color: #FF0000 !important;
+}
+
+label.agendado{
+  border-color: #4169E1 !important;
+  color: #4169E1 !important;
+}
+
+label.cancelado{
+  border-color: #808080 !important;
+  color: #808080 !important;
+}
+
+label.atrasado{
+  border-color: #d75413 !important;
+  color: #d75413 !important;
+}
+
+label.em-rota{
+  border-color: #0000FF !important;
+  color: #0000FF !important;
+}
+
+label.devolvido{
+  border-color: #FF4500 !important;
+  color: #FF4500 !important;
+}
+
+label.reprogramado{
+  border-color: #9932CC !important;
+  color: #9932CC !important;
+}
+
+td svg{
+  margin-top: 5px;
+  color: #00000080;
+  cursor: pointer;
+}
+
+button.no_button{
+  background: transparent;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  color: white;
+}
+
+.no_input{
+  background: transparent;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* ================================  margins top */
+
+.mt-75 { margin-top: 75px !important; }
+.mt-50 { margin-top: 50px !important; }
+.mt-100 { margin-top: 100px !important; }
+.mt-150 { margin-top: 150px !important; }
+.mt-200 { margin-top: 200px !important; }
+.mt-250 { margin-top: 250px !important; }
+.mt-300 { margin-top: 300px !important; }

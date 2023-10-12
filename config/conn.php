@@ -1,0 +1,1 @@
+<?php $conn = new mysqli('thecircle.com.br', 'u868458939_vmi', '^i6M8*av', 'u868458939_vmi'); ?>

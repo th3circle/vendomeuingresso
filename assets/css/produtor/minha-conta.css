@@ -1,0 +1,133 @@
+.profile_pp {
+	background-size: cover !important;
+	background-position: center center !important;
+	border-radius: 100% !important;
+	padding: 0px !important;
+	width: 80%;
+	padding-bottom: 80% !important;
+}
+
+@keyframes pulsate {
+    0% {
+        border-color: #00000020;
+    }
+    50% {
+        border-color: red;
+    }
+    100% {
+        border-color: #00000020;
+    }
+}
+
+input:required:invalid {
+    animation: pulsate 1.5s infinite;
+}
+
+h4.title {
+	font-weight: 300;
+	margin-bottom: 20px;
+	color: #00000080;
+}
+
+ul.left_menu {
+	margin-bottom: 0px;
+	margin-top: 45px;
+	padding-left: 0px;
+}
+
+ul.left_menu a {
+	text-decoration: none;
+}
+
+ul.left_menu li {
+	font-weight: 300;
+	padding: 7px 15px;
+	background: transparent;
+	list-style-type: none;
+	font-size: 0.8rem;
+	color: black;
+	border-left: 3px solid transparent;
+	transition: all 200ms;
+}
+
+ul li.ative {
+	border-left: 3px solid var(--primaria);
+}
+
+ul.left_menu li:hover {
+	border-left: 3px solid var(--primaria);
+}
+
+.module hr {
+	border-color: #00000020;
+}
+
+.insta_pp {
+	widht: 100%;
+	padding-bottom: 100%;
+	border-radius: 15px;
+	background-position: center center;
+	background-size: cover !important;
+}
+
+label.status {
+	padding-top: 8px;
+	margin-left: 10px;
+	font-size: 0.8rem;
+	color: #28a745 !important;
+}
+
+label.status svg {
+	margin-right: 5px;
+}
+
+div.alert_email {
+	padding: 5px 5px 5px 20px;
+	margin-bottom: 20px;
+	background: #ff9307;
+	color: white;
+	border-radius: 20px;
+	font-weight: 300;
+}
+
+.alert_email .fa-envelope {
+	font-size: 1rem;
+}
+
+.alert_email svg {
+	margin-right: 10px;
+}
+
+.alert_email button.resend {
+	padding: 8px 15px;
+	border-radius: 20px;
+	border: none;
+	background: #00000010;
+	color: white;
+	font-size: 0.7rem !important;
+}
+
+svg.changePic {
+	position: relative;
+	padding: 10px 10px 12px 12px;
+	background: var(--primaria);
+	border-radius: 100%;
+	color: white;
+	top: -55%;
+	right: -65%;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1650px) {
+	svg.changePic {
+		top: -50%;
+		right: -65%;
+	}
+}
+
+@media screen and (max-width: 1450px) {
+	svg.changePic {
+		top: -40%;
+		right: -60%;
+	}
+}

@@ -1,0 +1,24 @@
+.top_module {
+	border-radius: 25px;
+	background: #ffffff;
+	box-shadow:  5px 5px 18px #d3d3d345, -5px -5px 18px #ededed45;
+}
+
+.iconModule {
+	padding: 25px;
+	background: var(--primaria);
+	border-radius: 25px;
+	color: white;
+}
+
+.top_module .btmText {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: #000000db;
+}
+
+.top_module .topText {
+	font-size: 0.6rem !important;
+	margin-left: 3px;
+	color: #00000070;
+}

@@ -1,0 +1,29 @@
+:root {
+  --primaria: #713ABE;
+  --secundaria: #5B0888;
+}
+
+.act_money {
+	border: none;
+	background: var(--primaria);
+	color: white;
+	padding: 13px 20px !important;
+	margin-left: 10px;
+	border-radius: 20px;
+	font-size: 0.8rem;
+}
+
+.act_money svg {
+	margin-right: 5px;
+}
+
+.topText {
+	margin-left: 0px !important;
+}
+
+label.stats {
+	font-size: 0.6rem !important;
+	border: 1px solid #000;
+	border-radius: 10px;
+	padding: 3px 8px;
+}

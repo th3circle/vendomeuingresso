@@ -1,0 +1,129 @@
+body{
+	font-family: Poppins !important;
+}
+
+.event_banner{
+	width: 100%;
+	margin-top: 15px;
+	padding-bottom: 350px;
+	border-radius: 15px;
+	margin-bottom: 20px;
+	background-size: cover !important;
+	background-position: center center !important;
+}
+
+.rulesBox{
+	margin-top: 25px;
+	padding: 15px 20px !important;
+	border-radius: 15px;
+	color: #39474F;
+	background: #eeebf8;
+}
+
+p.b{
+	font-weight: 500;
+	font-size: 0.9rem !important;
+}
+
+p.b_title{
+	font-size: 1.5rem !important;
+	color: #39474F;
+	font-weight: 600;
+}
+
+button.act{
+	margin-top: 10px;
+	border: 2px solid #9d88d7;
+	color: #9d88d7;
+	padding: 10px 20px;
+	margin-right: 10px;
+	border-radius: 25px;
+	background: transparent;
+}
+
+button.act svg{
+	margin-right: 5px;
+}
+
+.ticketBox{
+	width: 100%;
+	padding: 25px;
+	border-radius: 25px;
+	border: 2px solid #b19dd147;
+	margin-top: 8px !important;
+}
+
+.ticketBox .top{
+	padding-bottom: 15px;
+	border-bottom: 1px solid #39474F10;
+}
+
+.top svg{
+	font-size: 1.3rem !important;
+	color: var(--primaria) !important;
+}
+
+.top .ticketLabel{
+	margin-left: 3px;
+	font-weight: 500;
+	color: var(--secundaria);
+	font-size: 1rem !important;
+}
+
+.ticketDay{
+	cursor: poPoppins;
+	padding: 10px 0px;
+	border-bottom: 1px solid #39474F10;
+}
+
+.ticketDay .day{
+	color: #39474F;
+	font-size: 2.5rem !important;	
+	font-weight: 700;
+}
+
+.ticketDay .month{
+	color: #39474F;
+	font-weight: 500;
+	font-size: 1rem !important;
+}
+
+.ticketDay .extenseDay{
+	color: #39474F;
+	font-weight: 300 !important;
+	font-size: 0.6rem !important;
+}
+
+.prieceDescription{
+	font-weight: 400;
+	line-height: 1.3;
+	font-size: 0.6rem !important;
+}
+
+.prieceDescription b{
+	font-weight: 600 !important;
+	font-size: 0.8rem !important;
+}
+
+.ticketDay .fa-chevron-right{
+	color: #53AEEC70 !important;
+}
+
+label.tag {
+	padding: 5px 15px;
+	border-radius: 15px;
+	border: 1px solid var(--primaria);
+	font-size: 0.7rem !important;
+	margin-right: 8px;
+	margin-bottom: 15px;
+	font-weight: 400;
+}
+
+label.tipo_ingr { border-color: var(--primaria); background: var(--primaria); color: white; }
+label.categoria { border-color: var(--secundaria); background: var(--secundaria); color: white; }
+
+.purchaseRules {
+	font-size: 0.8rem !important;
+	line-height: 1.6em !important;
+	margin-bottom: 0px;
+}

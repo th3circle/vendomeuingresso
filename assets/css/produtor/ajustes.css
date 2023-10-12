@@ -1,0 +1,117 @@
+.iconModule svg {
+	width: 100%;
+	padding: 35px 0px;
+	border-radius: 25px 5px 5px 25px;
+	background: var(--primaria);
+	font-size: 1.4rem;
+	color: white;
+}
+
+.moduleSettings {
+	background: white;
+	box-shadow:  5px 5px 18px #d3d3d345, -5px -5px 18px #ededed45;
+	border-radius: 25px;
+}
+
+label.titleSettings {
+	font-size: 1.3rem;
+	font-weight: 400;
+}
+
+label.descSettings {
+	margin-top: 3px;
+	color: #00000070;
+	font-size: 0.6rem;
+}
+
+.moduleSettings .fa-chevron-right {
+	color: #00000010;
+}
+
+.moduleSettings,
+.moduleSettings label,
+.moduleSettings svg {
+	cursor: pointer;
+}
+
+
+/* =============================================== */
+/* ============================= Usuários ======== */
+
+button.act {
+	width: 100%;
+	padding: 10px 20px;
+	background: var(--primaria);
+	font-size: 0.8rem !important;
+	color: white !important;
+	border-radius: 20px;
+	position: relative;
+	top: 10px;
+	border: none;
+}
+
+.title_module {
+	font-weight: 300;
+	font-size: 1.5rem !important;
+}
+
+.titleTip svg {
+	margin-right: 5px;
+	color: var(--secundaria);
+}
+
+.titleTip {
+	font-size: 1.4rem !important;
+	font-weight: 400 !important;
+}
+
+.descTip {
+	margin-top: 10px;
+	font-size: 0.7rem !important;
+	font-weight: 300 !important;
+}
+
+.descTip b {
+	font-weight: 400;
+	font-size: 0.9rem !important;
+}
+
+.descTip .iconTip {
+	margin-right: 5px;
+	margin-top: 0px !important;
+	padding: 10px;
+	background: var(--primaria);
+	border-radius: 5px;
+	color: ;
+	color: white;
+}
+
+div.actions svg {
+	margin-left: 5px;
+	color: #00000050;
+	cursor: pointer;
+}
+
+label.status {
+	font-size: 0.6rem !important;
+	font-weight: 500 !important;
+	border: 1px solid #00000050;
+	padding: 3px 10px;
+	border-radius: 10px;
+}
+
+label.status svg {
+	margin-right: 5px !important;
+}
+
+label.status_ativo,
+.status_ativo svg {
+	border-color: #007e33 !important;
+	color: #007e33 !important;
+}
+
+label.status_inativo,
+.status_inativo svg {
+	border-color: #ff8800 !important;
+	color: #ff8800 !important;
+}
