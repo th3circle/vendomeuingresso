@@ -55,21 +55,21 @@
 				<div class="col-11 col-lg-4 mx-auto">
 					<div class="top_loginbox">
 						<div class="row">
-							<div onclick="window.location.href='./';" style="padding-right: 0px;" class="col-6">
-								<div class="active">
-									<label>Usuário</label>
-								</div>
-							</div>
-							<div onclick="window.location.href='../produtor';" style="padding-left: 0px;" class="col-6">
-								<div class="normal">
-									<label>Produtor</label>
+							<div class="col-12">
+								<div>
+									<button class="buttonLogin active">
+										<i class="fa-solid fa-user"></i> USUÁRIO
+									</button>
+									<button onclick="window.location.href='../produtor'" class="buttonLogin">
+										<i class="fa-regular fa-calendar-days"></i> PRODUTOR
+									</button>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="login_box">
 						<form method="POST" action="">
-							<h2>Entrar</h2>
+							<h2>Usuário</h2>
 							<p>Entre com e-mail e senha para fazer login em nossa plataforma.</p>
 							<div class="input">
 								<div class="row">

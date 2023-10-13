@@ -106,6 +106,14 @@
 				</div>
 			</div>
 
+			<div style="text-align: right;" class="col-6">
+				<div class="align">
+					<button onclick="window.location.href='./participantes?id=<?php echo $id_event ?>'" class="act_event">
+						<i class="fa-solid fa-gear"></i> Participantes
+					</button>
+				</div>
+			</div>
+
 		</div>
 		<div class="row">
 			<div class="col-3">

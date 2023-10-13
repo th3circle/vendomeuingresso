@@ -91,6 +91,22 @@ if (isset($_POST['pay'])) {
 
 						</p>
 
+						<p>
+							<?php 
+
+								if ($event['tipo'] == 1) {
+
+									$prodId = $event['business_id'];
+									$query = "SELECT name, surname FROM producer WHERE id = '$prodId'";
+									$mysqli_query = mysqli_query($conn, $query);
+									while ($prod_data = mysqli_fetch_array($mysqli_query)) { $prod = $prod_data; }
+
+									echo 'Produção: ' . $prod['name'] . ' ' . $prod['surname'];
+								}
+
+							?>
+						</p>
+
 						<a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo urlencode($local . ', ' . $cidade . ', ' . $uf); ?>" target="_blank"><button class="act">
 							<i class="fa-regular fa-compass"></i> 
 							Como chegar

@@ -49,14 +49,14 @@
 				<div class="col-11 col-lg-4 mx-auto">
 					<div class="top_loginbox">
 						<div class="row">
-							<div onclick="window.location.href='../login';" style="padding-right: 0px;" class="col-6">
-								<div class="normal">
-									<label>Usuário</label>
-								</div>
-							</div>
-							<div onclick="window.location.href='./';" style="padding-left: 0px;" class="col-6">
-								<div class="active">
-									<label>Produtor</label>
+							<div class="col-12">
+								<div>
+									<button onclick="window.location.href='../login'" class="buttonLogin">
+										<i class="fa-solid fa-user"></i> USUÁRIO
+									</button>
+									<button class="buttonLogin active">
+										<i class="fa-regular fa-calendar-days"></i> PRODUTOR
+									</button>
 								</div>
 							</div>
 						</div>

@@ -230,10 +230,17 @@
 
 			<?php	} else { ?>
 
-			<div style="text-align: right;" class="col-2">
-				<div class="align">
+			<div style="text-align: right; position: relative; z-index: 10;" class="col-2">
+				<div class="align dropdown-center">
 					<button onclick="window.location.href='<?php echo $config['app_local'] ?>/login';" class="login_btn">Login</button>
-					<button onclick="window.location.href='<?php echo $config['app_local'] ?>/cadastrar';" class="my_tickets">Cadastro</button>
+					<button data-bs-toggle="dropdown" aria-expanded="false" type="button" class="my_tickets">Cadastro</button>
+					
+					<div class="dropdown">
+					  <ul class="dropdown-menu account_menu">
+					    <li><a class="dropdown-item" href="<?php echo $config['app_local'] . '/cadastrar' ?>"><i class="fa-solid fa-user fa-sm"></i>  Usuário</a></li>
+					    <li><a class="dropdown-item" href="<?php echo $config['app_local'] . '/produtor/cadastrar' ?>"><i class="fa-regular fa-calendar"></i>  Produtor</a></li>
+					  </ul>
+					</div>
 				</div>
 			</div>
 

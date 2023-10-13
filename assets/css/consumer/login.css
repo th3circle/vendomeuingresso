@@ -6,7 +6,7 @@ body {
 	width: 100%;
 	padding: 35px;
 	background: #FFFFFF;
-/*	border-top: 20px solid var(--secundaria);*/
+	border-top: 20px solid var(--secundaria);
 	border-radius: 0px 0px 35px 35px;
 }
 
@@ -80,19 +80,36 @@ div.input .right_input{
 }
 
 .top_loginbox{
-/*	background: var(--secundaria);*/
 	font-size: 0.8rem !important;
 	text-align: center;
+	margin-bottom: 20px;
 	cursor: pointer;
-	color: white;
 }
 
-.top_loginbox .active{
+.top_loginbox button {
+	width: 40%;
+	margin: 0 10px;
+	border-radius: 15px;
+	background: transparent;
+	border: 1px solid #00000080;
+	color: #00000080 !important;
+	padding: 15px 20px;
+	transition: all 300ms;
+}
+
+.top_loginbox button:hover {
+	background: var(--secundaria);
+	color: white !important;
+}
+
+.top_loginbox button.active {
 	background: var(--secundaria) !important;
+	border-color: var(--secundaria) !important;
+	color: white !important;
 }
 
-.top_loginbox .normal{
-	background: #00000030;
+.top_loginbox svg {
+	margin-right: 5px;
 }
 
 .top_loginbox label{
