@@ -43,29 +43,29 @@
 
 </head>
 <body>
-<?php if (isMobileDevice()) {  } else { require "../../app/topbar.php"; } ?>
+<?php if (isMobileDevice()) { require "../../app/topbar_mobile.php"; } else { require "../../app/topbar.php"; } ?>
 
-	<div style="margin-top: 100px;" class="container">
+	<div style="margin-top: 100px;" class="container firtscontainer">
 		<div style="margin-top: 20px;" class="row">
-			<div class="col-3">
+			<div class="col-11 col-lg-3 mx-auto">
 				<div class="module profile_pp" style="background: url('<?php echo $config['app_local'] . '/assets/pp/consumer/' . $consumer['pp'] ?>');"	></div>
 				<span id="clickUpdate"><i class="fa-regular fa-pen-to-square changePic"></i></span>
 				<form action="" method="POST" enctype="multipart/form-data" id="formPP">
 					<input type="file" name="pp" id="inputPP" style="display: none;">
 				</form>
 				<ul class="left_menu">
-					<a href="<?php echo $config['app_local'] ?>/c/meus-ingressos"><li class="ative"><i class="fa-solid fa-ticket"></i> Meus Ingressos</li></a>
+					<a href="<?php echo $config['app_local'] ?>/c/meus-ingressos"><li class=""><i class="fa-solid fa-ticket"></i> Meus Ingressos</li></a>
 					<li><hr></li>
-					<a href="<?php echo $config['app_local'] ?>/c/minha-conta"><li class=""><i class="fa-solid fa-circle-user"></i> Minha Conta</li></a>
+					<a href="<?php echo $config['app_local'] ?>/c/minha-conta"><li class="ative"><i class="fa-solid fa-circle-user"></i> Minha Conta</li></a>
 					<a href="<?php echo $config['app_local'] ?>/c/revenda"><li><i class="fa-solid fa-shop fa-sm"></i> Revenda</li></a>
 					<a href="<?php echo $config['app_local'] ?>/app/logout.php"><li><i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal"></i> Sair</li></a>
 				</ul>
 			</div>
-			<div class="col-9">
+			<div class="col-12 col-lg-9">
 				<?php if ($user['verify_email'] == false) { ?>
 				<div <?php if (isset($cor)) { echo 'style="background: '.$cor.' !important;"'; } ?> class="alert_email">
 					<div class="row">
-						<div class="col-10">
+						<div class="col-8 col-lg-10">
 							<div style="font-size: 0.8rem !important;" class="align">
 								<i class="fa-solid fa-bell"></i>
 								<?php 
@@ -79,7 +79,7 @@
 								?>
 							</div>
 						</div>
-						<div style="text-align: right;" class="col-2">
+						<div style="text-align: right;" class="col-4 col-lg-2 resendDiv">
 							<div class="align">
 								<button <?php if (isset($_GET['sendMail'])) { echo 'style="opacity: 0 !Important; cursor: defaut !Important;"'; } else { echo 'onclick="window.location.href=`./verificar-email/resendMail.php`"'; } ?> class="resend">
 									<i class="fa-regular fa-share-from-square"></i>
@@ -110,7 +110,7 @@
 							} else {
 							    while ($dado = $con->fetch_array()) { ?>
 							        <div class="row ticketBox">
-							            <div class="col-2">
+							            <div class="col-12 col-lg-2">
 							                <div style="background: url('<?php echo '../../attachments/eventos/capas/' . $dado['nome_evento'] . '_' . $dado['event_banner'] ?>');" class="capaEvent"></div>
 							            </div>    
 							            <div class="col-sm">
@@ -119,7 +119,7 @@
 							                    <label class="local"><?php echo $dado['event_city'] . ', ' . $dado['event_UF']; ?></label>
 							                </div>
 							            </div>
-							            <div style="text-align: right;" class="col-1">
+							            <div style="text-align: right;" class="col-6 col-lg-1">
 							                <label class="date align">
 							                    <?php
 							                        $parts = explode('|', $dado['ticket']);
@@ -127,7 +127,7 @@
 							                    ?>
 							                </label>
 							            </div>
-							            <div style="text-align: center;" class="col-2">
+							            <div style="text-align: center;" class="col-6 col-lg-2">
 							                <div class="align">
 							                    <?php 
 							                        if ($dado['status'] == 0) { $status = 'AGUARDANDO PAG.'; }
@@ -138,7 +138,7 @@
 							                    <label class="status status_<?php echo $dado['status'] ?>"><?php echo $status ?></label><br>
 							                </div>
 							            </div>
-							            <div class="col-2">
+							            <div class="col-12 col-lg-2">
 							            	<?php if ($dado['status'] == 1) { ?>
 							                <div class="align">
 							                    <form target="_blank" method="POST" action="<?php echo $config['app_local'] ?>/c/ticket/">
@@ -174,7 +174,7 @@
 							} else {
 							    while ($dado = $con->fetch_array()) { ?>
 							        <div style="filter: saturate(0%);" class="row ticketBox">
-							            <div class="col-2">
+							            <div class="col-12 col-lg-2">
 							                <div style="opacity: 0.5; background: url('<?php echo '../../attachments/eventos/capas/' . $dado['nome_evento'] . '_' . $dado['event_banner'] ?>');" class="capaEvent"></div>
 							            </div>    
 							            <div class="col-sm">
@@ -183,7 +183,7 @@
 							                    <label class="local"><?php echo $dado['event_city'] . ', ' . $dado['event_UF']; ?></label>
 							                </div>
 							            </div>
-							            <div class="col-1">
+							            <div class="col-6 col-lg-1">
 							                <label class="date align">
 							                    <?php
 							                        $parts = explode('|', $dado['ticket']);
@@ -191,7 +191,7 @@
 							                    ?>
 							                </label>
 							            </div>
-							            <div style="text-align: center;" class="col-2">
+							            <div style="text-align: center;" class="col-6 col-lg-2">
 							                <div class="align">
 							                    <?php 
 							                        if ($dado['status'] == 0) { $status = 'PROC. PAGAMENTO'; }

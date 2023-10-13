@@ -63,7 +63,7 @@ if (isset($_POST['pay'])) {
 			</div>
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-8">
+					<div class="col-12 col-lg-8">
 						<label alt="Forma com que o ingresso é vendido." class="tag categoria"><?php echo ($event['tipo'] == 1) ? "PRODUTOR" : (($event['tipo'] == 2) ? "REVENDA" : "Outro Tipo"); ?></label>
 						<label alt="Categoria do evento." class="tag tipo_ingr"><?php echo strtoupper($event['nome_categoria']) ?></label>
 						<br>
@@ -138,8 +138,8 @@ if (isset($_POST['pay'])) {
 							?></p>
 						</div>
 					</div>
-					<div style="position: relative !important;" class="col-4">
-						<div class="ticketBox">
+					<div style="position: relative !important;" class="col-12 col-lg-4">
+						<div class="ticketBox" id="ticketBox">
 							<div class="">
 								<div class="row ticket_dateBox">
 									<div class="col-12 top">
@@ -155,7 +155,7 @@ if (isset($_POST['pay'])) {
 										</div>
 									</div>
 									<?php if (isset($_GET['dia'])) { ?>
-									<form method="POST" id="payForm" action="">
+									<form method="POST" id="payForm" action="#ticketBox">
 										
 									    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 									    <input type="hidden" name="dia" value="<?php echo $_GET['dia']; ?>">

@@ -141,6 +141,9 @@
 	    	margin-right: 15px !important;
 	    	margin-left: 8px !important;
 	    }
+	    div.newslatter {
+	    	margin-top: 75px !important;
+	    }
 	}
 </style>
 

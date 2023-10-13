@@ -42,7 +42,7 @@
 
 </head>
 <body>
-<?php if (isMobileDevice()) {  } else { require "../app/topbar.php"; } ?>
+<?php if (isMobileDevice()) { require "../app/topbar_mobile.php"; } else { require "../app/topbar.php"; } ?>
 
 	<div class="container">
 		<form method="GET" action="" id="filter">
@@ -50,7 +50,7 @@
 				<div class="col-sm">
 
 				</div>
-				<div class="col-2">
+				<div class="col-5 col-lg-2">
 					<label class="input">Categorias: <b class="req">*</b></label>
 					<select name="categoria">
 						<option>Todas</option>
@@ -62,7 +62,7 @@
 						<?php } ?>
 					</select>
 				</div>
-				<div class="col-2">
+				<div class="col-5 col-lg-2">
 					<label class="input">Data: <b class="req">*</b></label>
 					<?php
 					$today = date('Y-m-d');
@@ -86,9 +86,9 @@
 					?>
 
 				</div>
-				<div class="col-1">
+				<div class="col-2 col-lg-1">
 					<div class="align">
-						<button form="filter" style="padding: 13px 15px; margin-top: 8px;" class="my_tickets"><i class="fa-solid fa-filter"></i></button>
+						<button form="filter" style="padding: 13px 15px; margin-top: 8px;" class="my_tickets mobileMytickets"><i class="fa-solid fa-filter"></i></button>
 					</div>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 				$con = $conn->query($consulta) or die($conn->error);
 				if ($con->num_rows > 0) {
 				while($dado = $con->fetch_array()) { ?>
-				<div class="col-11 col-md-4 col-lg-3">
+				<div class="col-11 col-md-4 col-lg-3 mx-auto">
 					<div onclick="window.location.href='<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id']; ?>'" class="moduleEvent">
 						<label class="tag_type <?php if ($dado['tipo'] == 2) { echo 'tagtype_revenda'; } ?>">
 							<?php if ($dado['tipo'] == 2) { echo 'REVENDA'; } else { echo 'PRODUTOR'; } ?>
@@ -169,10 +169,10 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="row title_section">
-						<div class="col-1">
+						<div class="col-3 col-lg-1">
 							<i class="fa-solid fa-ticket"></i>
 						</div>
-						<div class="col-sm">
+						<div class="col-9 col-lg-sm">
 							<div class="align">
 								<h1 class="title_section">Perto de Você</h1>
 							</div>
@@ -187,7 +187,7 @@
 				$con = $conn->query($consulta) or die($conn->error);
 				if ($con->num_rows > 0) {
 				while($dado = $con->fetch_array()) { ?>
-				<div class="col-11 col-md-4 col-lg-3">
+				<div class="col-11 col-md-4 col-lg-3 mx-auto">
 					<div onclick="window.location.href='<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id']; ?>'" class="moduleEvent">
 						<label class="tag_type <?php if ($dado['tipo'] == 2) { echo 'tagtype_revenda'; } ?>">
 							<?php if ($dado['tipo'] == 2) { echo 'REVENDA'; } else { echo 'PRODUTOR'; } ?>
@@ -239,7 +239,7 @@
 						</div>
 					</div>
 				</div>
-				<?php } } else { echo "<center><p class='nothing'> Nenhum evento encontrado! Veja eventos um pouco mais distantes: <br><br> <a href='./eventos'><button style='width: 100px;' class='my_tickets'>Ver Tudo</button></a></p></center>"; } ?>
+				<?php } } else { echo "<center><p class='nothing'> Nenhum evento encontrado!</p></center>"; } ?>
 			</div>
 		</div>
 	</section>

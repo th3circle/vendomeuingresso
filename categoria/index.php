@@ -32,7 +32,7 @@
 
 </head>
 <body>
-<?php if (isMobileDevice()) {  } else { require "../app/topbar.php"; } ?>
+<?php if (isMobileDevice()) { require "../app/topbar_mobile.php"; } else { require "../app/topbar.php"; } ?>
 
 	<div  class="bannerCategoria">
 		<div class="container">
@@ -53,7 +53,7 @@
 				$con = $conn->query($consulta) or die($conn->error);
 				if ($con->num_rows > 0) {
 				while($dado = $con->fetch_array()) { ?>
-				<div class="col-11 col-md-4 col-lg-3">
+				<div class="col-11 col-md-4 col-lg-3 mx-auto">
 					<div onclick="window.location.href='<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id']; ?>'" class="moduleEvent">
 						<label class="tag_type <?php if ($dado['tipo'] == 2) { echo 'tagtype_revenda'; } ?>">
 							<?php if ($dado['tipo'] == 2) { echo 'REVENDA'; } else { echo 'PRODUTOR'; } ?>
@@ -118,10 +118,10 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="row title_section">
-						<div class="col-1">
+						<div class="col-3 col-lg-1">
 							<i class="fa-solid fa-ticket"></i>
 						</div>
-						<div class="col-sm">
+						<div class="col-9 col-lg-sm">
 							<div class="align">
 								<h1 class="title_section">Perto de Você</h1>
 							</div>
@@ -136,7 +136,7 @@
 				$con = $conn->query($consulta) or die($conn->error);
 				if ($con->num_rows > 0) {
 				while($dado = $con->fetch_array()) { ?>
-				<div class="col-11 col-md-4 col-lg-3">
+				<div class="col-11 col-md-4 col-lg-3 mx-auto">
 					<div onclick="window.location.href='<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id']; ?>'" class="moduleEvent">
 						<label class="tag_type <?php if ($dado['tipo'] == 2) { echo 'tagtype_revenda'; } ?>">
 							<?php if ($dado['tipo'] == 2) { echo 'REVENDA'; } else { echo 'PRODUTOR'; } ?>

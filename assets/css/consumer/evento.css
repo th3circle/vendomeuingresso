@@ -127,3 +127,15 @@ label.categoria { border-color: var(--secundaria); background: var(--secundaria)
 	line-height: 1.6em !important;
 	margin-bottom: 0px;
 }
+
+@media (max-width: 768px) {
+    .event_banner {
+    	padding-bottom: 150px !important;
+    }
+    .mt-50 {
+    	margin-top: 0px !important;
+    }
+    .ticketBox {
+    	margin-top: 30px !important;
+    }
+}

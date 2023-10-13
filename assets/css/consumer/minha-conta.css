@@ -279,3 +279,27 @@ label.status_4 { color: #0a0949 !important; border-color: #0a0949; }
 	background: var(--primaria) !important;
 	color: white !important;
 }
+
+@media (max-width: 768px) {
+    .profile_pp,
+    #clickUpdate {
+    	display: none !important;
+    }
+    .left_menu {
+    	margin-top: 30px !important;
+    	margin-bottom: 40px !important;
+    }
+    .firtscontainer {
+    	margin-top: 0px !important;
+    }
+    .resendDiv {
+    	padding-left: 0px !important;
+    }
+    .alert_email {
+    	padding: 15px !important;
+    	font-size: 13px !important;
+    }
+    input {
+    	margin-bottom: 10px;
+    }
+}

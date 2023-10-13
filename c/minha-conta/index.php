@@ -95,11 +95,11 @@
 
 </head>
 <body>
-<?php if (isMobileDevice()) {  } else { require "../../app/topbar.php"; } ?>
+<?php if (isMobileDevice()) { require "../../app/topbar_mobile.php"; } else { require "../../app/topbar.php"; } ?>
 
-	<div style="margin-top: 100px;" class="container">
+	<div style="margin-top: 100px;" class="container firtscontainer">
 		<div style="margin-top: 20px;" class="row">
-			<div class="col-3">
+			<div class="col-11 col-lg-3 mx-auto">
 				<div class="module profile_pp" style="background: url('<?php echo $config['app_local'] . '/assets/pp/consumer/' . $consumer['pp'] ?>');"	></div>
 				<span id="clickUpdate"><i class="fa-regular fa-pen-to-square changePic"></i></span>
 				<form action="" method="POST" enctype="multipart/form-data" id="formPP">
@@ -113,11 +113,11 @@
 					<a href="<?php echo $config['app_local'] ?>/app/logout.php"><li><i class="fa-solid fa-arrow-right-from-bracket fa-flip-horizontal"></i> Sair</li></a>
 				</ul>
 			</div>
-			<div class="col-9">
+			<div class="col-12 col-lg-9">
 				<?php if ($user['verify_email'] == false) { ?>
 				<div <?php if (isset($cor)) { echo 'style="background: '.$cor.' !important;"'; } ?> class="alert_email">
 					<div class="row">
-						<div class="col-10">
+						<div class="col-8 col-lg-10">
 							<div style="font-size: 0.8rem !important;" class="align">
 								<i class="fa-solid fa-bell"></i>
 								<?php 
@@ -131,7 +131,7 @@
 								?>
 							</div>
 						</div>
-						<div style="text-align: right;" class="col-2">
+						<div style="text-align: right;" class="col-4 col-lg-2 resendDiv">
 							<div class="align">
 								<button <?php if (isset($_GET['sendMail'])) { echo 'style="opacity: 0 !Important; cursor: defaut !Important;"'; } else { echo 'onclick="window.location.href=`./verificar-email/resendMail.php`"'; } ?> class="resend">
 									<i class="fa-regular fa-share-from-square"></i>
@@ -145,59 +145,59 @@
 				<div class="module">
 					<form method="POST" action="#" id="updateProfile">
 						<div class="row">
-							<div class="col-4">
+							<div class="col-12 col-lg-4">
 								<label class="input">Nome: <b class="req">*</b></label>
 								<input required value="<?php if(isset($user['nome'])) {echo $user['nome'];} ?>" type="text" name="name">
 							</div>
-							<div class="col-4">
+							<div class="col-12 col-lg-4">
 								<label class="input">Sobrenome: <b class="req">*</b></label>
 								<input required value="<?php if(isset($user['surname'])) {echo $user['surname'];} ?>" type="text" name="surname">
 							</div>
 							<div class="col-12">
 								<hr>
 							</div>
-							<div class="col-4">
+							<div class="col-12 col-lg-4">
 								<label class="input">Telefone:</label>
 								<input required value="<?php if(isset($user['telefone'])) {echo $user['telefone'];} ?>" id="telefone" type="text" name="telefone">
 							</div>
-							<div class="col-5">
+							<div class="col-12 col-lg-5">
 								<label class="input">E-mail: <b class="req">*</b></label>
 								<input required value="<?php if(isset($user['email'])) {echo $user['email'];} ?>" type="email" name="email">
 							</div>
 							<div class="col-12">
 								<hr>
 							</div>
-							<div class="col-2">
+							<div class="col-12 col-lg-2">
 								<label class="input">CEP: <b class="req">*</b></label>
 								<input required onkeyup="buscaCEP()" value="<?php if(isset($user['address_cep'])) {echo $user['address_cep'];} ?>" type="text" id="cep_minhaConta" name="endereco_cep">
 							</div>
-							<div class="col-3">
+							<div class="col-12 col-lg-3">
 								<label class="input">Cidade: <b class="req">*</b></label>
 								<input required <?php if(isset($user['address_cidade'])) {echo 'value="' . $user['address_cidade'] . '"';} ?> type="text" id="cidade" name="endereco_cidade">
 							</div>
-							<div class="col-3">
+							<div class="col-12 col-lg-3">
 								<label class="input">Estado: <b class="req">*</b></label>
 								<input required <?php if(isset($user['address_estado'])) {echo 'value="' . $user['address_estado'] . '"';} ?> type="text" id="estado" name="endereco_estado">
 							</div>
-							<div class="col-4">
+							<div class="col-12 col-lg-4">
 								<label class="input">Endereço: <b class="req">*</b></label>
 								<input required <?php if(isset($user['address_longradouro'])) {echo 'value="' . $user['address_longradouro'] . '"';} ?> type="text" id="longradouro" name="endereco_longradouro">
 							</div>
 							<div class="col-12">
 								<hr>
 							</div>
-							<div class="col-3">
+							<div class="col-12 col-lg-3">
 								<label class="input">CPF: <b class="req">*</b></label>
 								<input required value="<?php if(isset($user['cpf'])) {echo $user['cpf'];} ?>" id="cpf" type="text" name="cpf">
 							</div>
-							<div class="col-4">
+							<div class="col-12 col-lg-4">
 								<label class="input">Data de Nascimento: <b class="req">*</b></label>
 								<input max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>" required value="<?php if(isset($user['nascimento'])) {echo date('Y-m-d', strtotime($user['nascimento']));} ?>" type="date" name="nascimento">
 							</div>
 							<div class="col-12">
 								<hr>
 							</div>
-							<div class="col-4">
+							<div class="col-8 col-lg-4">
 								<label class="input">Alterar Senha:</label>
 								<input onclick="value=''" id="input_pass" minlength="8" type="password" name="nova_senha">
 							</div>

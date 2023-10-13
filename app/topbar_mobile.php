@@ -156,12 +156,12 @@
 				</a>
 			</div>
 			<?php if (isLoged('user_consumer') == true) { ?>
-			<div style="text-align: right;" class="col-1">
+			<div style="text-align: right;" class="col-5 col-lg-1">
 				<div class="account_box align">
 					<i class="fa-solid fa-bell bell_notify"></i>
 				</div>
 			</div>
-			<div style="position: relative !important; z-index: 10 !important;" class="col-1">
+			<div style="position: relative !important; z-index: 15 !important; text-align: right;" class="col-3 col-lg-1">
 				<div class="pp_box align">
 					<div class="dropdown-center">
 					  <button type="button" class="no_button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -176,7 +176,7 @@
 					</div>
 				</div>
 			</div>
-			<?php	} else { ?>
+			<?php } else { ?>
 			<div style="text-align: right; position: relative; z-index: 10;" class="col-8">
 				<div class="align dropdown-center">
 					<button onclick="window.location.href='<?php echo $config['app_local'] ?>/login';" class="login_btn">Login</button>

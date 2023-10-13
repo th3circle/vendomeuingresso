@@ -171,6 +171,25 @@ button.no_button{
   margin: 0px;
 }
 
+@media (max-width: 768px) {
+    .buttonLogin {
+      font-size: 0.7rem !important;
+      padding: 15px 0px !important;
+    }
+    .copy {
+      text-align: center;
+      width: 80% !important;
+      font-size: 0.4rem !important;
+    }
+    .bannerCategoria {
+      padding: 50px 0px !important;
+      margin-bottom: 50px !important;
+    }
+    .mobileMytickets {
+      margin-left: -5px !important;
+    }
+}
+
 /* ================================  margins top */
 
 .mt-75 { margin-top: 75px !important; }
