@@ -204,6 +204,9 @@
 					<li onclick="window.location.href='<?php echo $config['app_local'] . '/categoria?id=' . $dado['id']; ?>'"><?php echo $dado['nome'] ?></li>
 					<?php } ?>
 				</ul>
+				<div style="margin-top: 30px;" class="selo">
+					<span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=2F82Wix89Rn2eN0Nex2xOatgWAotZDN4zmdIHH650liCeODHgO116pN69wFh"></script></span>
+				</div>
 			</div>
 			<div style="text-align: right;" class="col-sm">
 				<h4 class="title_footer">Baixe nosso App</h4>
