@@ -31,7 +31,7 @@
 
 </head>
 <body>
-<?php if (isMobileDevice()) {  } else { require "app/topbar.php"; } ?>
+<?php if (isMobileDevice()) { require "app/topbar_mobile.php"; } else { require "app/topbar.php"; } ?>
 
 	<!-- [Lancelot]: listagem das categorias -->
 	<section id="categories_slide" class="mt-50">
@@ -41,10 +41,10 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="row title_section">
-						<div class="col-1">
+						<div class="col-3 col-lg-1">
 							<i class="fa-solid fa-ticket"></i>
 						</div>
-						<div class="col-sm">
+						<div class="col-9 col-lg-sm">
 							<div class="align">
 								<h1 class="title_section">Categorias</h1>
 							</div>
@@ -55,7 +55,7 @@
 			<!-- end title -->
 
 			<div style="margin-top: 50px;" class="row">
-				<div class="col-12">
+				<div class="col-12 mx-auto">
 					<div class="categories_slide">
 						<?php // [Lancelot]: faz a listagem das categeorias marcadas como destaque e na ordem selecionada
 						$consulta = "SELECT * FROM categories WHERE destaque = 'true' AND status != 0 ORDER BY posicao ASC LIMIT " . $config['limite_categorias'];
@@ -74,15 +74,24 @@
 						<?php } ?>
 					</div>
 					<script>
-					  $('.categories_slide').slick({
-					      dots: false,
-					      infinite: true,
-					      speed: 1000,
-					      autoplay: true,
-					      autoplaySpeed: 3000,
-					      slidesToShow: 7,
-					      slidesToScroll: 7,
-					  });
+					$('.categories_slide').slick({
+					    dots: false,
+					    infinite: true,
+					    speed: 1000,
+					    autoplay: true,
+					    autoplaySpeed: 3000,
+					    slidesToShow: 7,
+					    slidesToScroll: 7,
+					    responsive: [
+					        {
+					            breakpoint: 768, // Defina a largura da tela em que deseja mudar o número de slides
+					            settings: {
+					                slidesToShow: 3, // Defina o número de slides a serem exibidos em dispositivos móveis
+					                slidesToScroll: 3, // Defina o número de slides a serem rolados em dispositivos móveis
+					            }
+					        }
+					    ]
+					});
 					</script>
 				</div>
 			</div>
@@ -97,10 +106,10 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="row title_section">
-						<div class="col-1">
+						<div class="col-3 col-lg-1">
 							<i class="fa-solid fa-ticket"></i>
 						</div>
-						<div class="col-sm">
+						<div class="col-9 col-lg-sm">
 							<div class="align">
 								<h1 class="title_section">Eventos</h1>
 							</div>
@@ -115,7 +124,7 @@
 				$con = $conn->query($consulta) or die($conn->error);
 				if ($con->num_rows > 0) {
 				while($dado = $con->fetch_array()) { ?>
-				<div class="col-11 col-md-4 col-lg-3">
+				<div class="col-11 col-md-4 col-lg-3 mx-auto">
 					<div onclick="window.location.href='<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id']; ?>'" class="moduleEvent">
 						<label class="tag_type <?php if ($dado['tipo'] == 2) { echo 'tagtype_revenda'; } ?>">
 							<?php if ($dado['tipo'] == 2) { echo 'REVENDA'; } else { echo 'PRODUTOR'; } ?>
@@ -181,12 +190,12 @@
 		<div class="row">
 			<div class="col-sm">
 				<div class="row title_section">
-					<div class="col-1">
+					<div class="col-3 col-lg-1">
 						<i class="fa-solid fa-ticket"></i>
 					</div>
-					<div class="col-sm">
+					<div class="col-9 col-lg-sm">
 						<div class="align">
-							<h1 class="title_section">Eventos</h1>
+							<h1 class="title_section">Destaques</h1>
 						</div>
 					</div>
 				</div>
@@ -230,10 +239,10 @@
 			<div class="row">
 				<div class="col-sm">
 					<div class="row title_section">
-						<div class="col-1">
+						<div class="col-3 col-lg-1">
 							<i class="fa-solid fa-ticket"></i>
 						</div>
-						<div class="col-sm">
+						<div class="col-9 col-lg-sm">
 							<div class="align">
 								<h1 class="title_section">Perto de Você</h1>
 							</div>
@@ -248,7 +257,7 @@
 				$con = $conn->query($consulta) or die($conn->error);
 				if ($con->num_rows > 0) {
 				while($dado = $con->fetch_array()) { ?>
-				<div class="col-11 col-md-4 col-lg-3">
+				<div class="col-11 col-md-4 col-lg-3 mx-auto">
 					<div onclick="window.location.href='<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id']; ?>'" class="moduleEvent">
 						<label class="tag_type <?php if ($dado['tipo'] == 2) { echo 'tagtype_revenda'; } ?>">
 							<?php if ($dado['tipo'] == 2) { echo 'REVENDA'; } else { echo 'PRODUTOR'; } ?>
