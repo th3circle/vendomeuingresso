@@ -155,7 +155,14 @@
 
 		} else {
 
-			return null;
+			$status_data = array(
+				"stats" => "approved",
+				"color" => "#00a13b",
+				"icon" => "fa-solid fa-right-left",
+				"message" => "TRANSFERINDO",
+			);
+
+			return $status_data;
 
 		}
 

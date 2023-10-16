@@ -1,3 +1,14 @@
+<?php 
+
+if (isMobileDevice()) {
+
+    echo "<script>alert('Para acessar as funções de administração do sistema, acesse através de um computador.')</script>";
+    echo '<script type="text/javascript">window.location = "' . $config['app_local'] . '";</script>';
+    exit;
+}
+
+?>
+
 <style>
 	body {
 		padding: 100px 50px 50px calc(250px + 50px) !important;
@@ -199,6 +210,21 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- <div style="display: <?php if (checkPermission('can_view_finance', $permission)) { echo 'block'; } else { echo 'none'; } ?>;" 
+					onclick="window.location.href='<?php echo $config['app_local'] ?>/produtor/relatorios'" 
+					class="left_links <?php if ($page_name == 'Relatórios') { echo 'active_leftLink'; } ?>">
+					<div class="row">
+						<div class="col-3 leftIcon">
+							<div class="align">
+								<i class="fa-solid fa-sm fa-chart-column"></i>
+							</div>
+						</div>		
+						<div class="col-sm rightText">
+							<li class="linkText align">Relatórios</li>
+						</div>
+					</div>
+				</div> -->
 
 				<div style="display: <?php if (checkPermission('can_view_finance', $permission)) { echo 'block'; } else { echo 'none'; } ?>;" 
 					onclick="window.location.href='<?php echo $config['app_local'] ?>/produtor/financeiro'" 

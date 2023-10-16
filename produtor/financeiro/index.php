@@ -138,7 +138,9 @@
 							             FROM tickets_saled
 							             INNER JOIN events ON tickets_saled.event_id = events.id
 							             INNER JOIN users ON tickets_saled.user_id = users.id
-							             WHERE events.business_id = '$id_producer' LIMIT 50";
+							             WHERE events.business_id = '$id_producer'
+							             AND tickets_saled.status != 4
+							             LIMIT 50";
 							$con = $conn->query($consulta) or die($conn->error);
 							while($dado = $con->fetch_array()) { ?>
 							<tr>

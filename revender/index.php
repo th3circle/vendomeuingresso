@@ -1,12 +1,14 @@
 <?php 
 
-	$page_name = 'Revender';
+	$page_name = 'Revender Ingresso';
 
 	require "../config/conn.php";
 	require "../config/geral.php";
 	require "../config/cdn.php";
 
-	if (!isset($_SESSION['user_consumer'])) { header('Location: ../login'); }
+	require "../config/functions/app.php";
+	require "../config/functions/auth.php";
+	require "../config/functions/user.php";
 
 ?>
 
@@ -21,8 +23,9 @@
 	<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
 </head>
 <body>
-	<form method="POST" action="./postar/" enctype="multipart/form-data">
-		<div style="margin-top: 10rem !important;" class="alignContent">
+	<form method="POST" action="./local/" enctype="multipart/form-data">
+		<input type="hidden" name="step-one" value="true">
+		<div class="alignContent">
 			<div style="margin-bottom: 30px;" class="row">
 				<div class="col-1">
 					<img class="logo" src="<?php echo $config['logo_principal'] ?>">
@@ -47,21 +50,37 @@
 			</div>
 			<div class="progressbar"><div style="width: 15%;" class="bar"></div></div>
 			<div class="module">
+				<div id="capa" class="capa">
+					<label class="edit">
+						<i class="fa-regular fa-pen-to-square"></i>
+					</label>
+				</div>
+				<input required id="input_capa" type="file" name="evento_capa" style="display: none;">
+				<div class="row">
+					<div class="col-12">
+						<p class="capa_details">Para garantir uma ótima apresentação do banner, sugerimos o uso de uma imagem no formato JPG com as dimensões de 1675x450 pixels.</p>
+					</div>
+				</div>
 				<div class="contentInputs">
 					<div class="row">
-						<div class="col-12">
-							<label class="input">Escolha o Ingresso: <b class="req">*</b></label>
-							<select name="id">
-								<?php
-								$consulta = "SELECT tickets_saled.*, events.*, tickets_saled.id AS tick_id
-											FROM tickets_saled
-											INNER JOIN events ON tickets_saled.event_id = events.id
-											WHERE events.status = 1 AND tickets_saled.status = 1;";
+						<div class="col-9">
+							<label class="input">Nome do Evento: <b class="req">*</b></label>
+							<input required placeholder="ex: Festival Rock in Rio" type="text" name="evento_nome">
+						</div>
+						<div class="col-3">
+							<label class="input">Categoria do Evento: <b class="req">*</b></label>
+							<select required style="padding: 16px; border-radius: 20px;" name="evento_categoria">
+								<?php // [Lancelot]: faz a listagem das categeorias
+								$consulta = "SELECT * FROM categories WHERE status != 0 ORDER BY nome ASC";
 								$con = $conn->query($consulta) or die($conn->error);
-								while($dado = $con->fetch_array()) { $id_cat = $dado['id']; ?>
-								<option value="<?php echo $dado['tick_id'] ?>"><?php echo $dado['ticket']; ?></option>
+								while($dado = $con->fetch_array()) { ?>
+								<option value="<?php echo $dado['id'] ?>"><?php echo $dado['nome'] ?></option>
 								<?php } ?>
 							</select>
+						</div>
+						<div style="margin-top: 15px;" class="col-12">
+							<label class="input">Descrição do Evento: <b class="req">*</b></label>
+							<textarea style="margin-top: 10px !important;" required name="evento_descricao" id="evento_descricao"></textarea>
 						</div>
 					</div>
 				</div>
@@ -69,4 +88,26 @@
 		</div>
 	</form>
 </body>
+<script>
+    const inputCapa = document.getElementById('input_capa');
+    const capaDiv = document.getElementById('capa');
+
+    capaDiv.addEventListener('click', function() {
+        inputCapa.click();
+    });
+
+    inputCapa.addEventListener('change', function() {
+        const file = inputCapa.files[0];
+
+        if (file) {
+            const objectURL = URL.createObjectURL(file);
+            capaDiv.style.backgroundImage = `url('${objectURL}')`;
+        } else {
+            capaDiv.style.backgroundImage = 'none';
+        }
+    });
+</script>
+<script>
+  new FroalaEditor('textarea#evento_descricao')
+</script>
 </html>

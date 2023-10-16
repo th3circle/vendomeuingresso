@@ -90,10 +90,22 @@
 							        <h1 class="h1_title">Dados do App:</h1>
 							    </div>
 							</div>
+							<div class="row">
+								<div class="col-2">
+									<label class="input">Porcentagem de Lucro: </label>
+									<input type="number" value="<?php echo $config['lucro'] ?>" name="perc_lucro">
+								</div>
+							</div>
 							<div style="margin-top: 10px;" class="row">
 							    <div class="col-4">
 							        <label class="input">Nome do App <b class="req">*</b></label>
 							        <input value="<?php echo $config['app_name'] ?>" type="text" name="app_name">
+							    </div>
+							</div>
+							<div style="margin-top: 10px;" class="row">
+							    <div class="col-5">
+							        <label class="input">Chave Mercado Pago <b class="req">*</b></label>
+							        <input value="<?php echo $config['mp_access_token'] ?>" type="text" name="chave_mp">
 							    </div>
 							</div>
 							<div style="margin-top: 10px;" class="row">
@@ -143,6 +155,63 @@
 									    </div>
 									</div>
 								</div>
+							</div>
+							<div style="margin-top: 35px;" class="row">
+							    <div class="col-12">
+							        <h1 class="h1_title">Banners:</h1>
+							        <?php 
+
+							        	$banners = json_decode($config['banner_home'], true);
+
+							        ?>
+							    </div>
+							</div>
+							<div style="margin-top: 10px;" class="row">
+								<div class="col-2">
+									<label class="input">Status: </label>
+									<select name="status_banner">
+										<option>Ativo</option>
+										<option>Inativo</option>
+									</select>
+								</div>
+								<div class="col-2">
+									<label class="input">Altura: (em pixels)</label>
+									<input type="text" value="<?php echo $banners['config']['height'] ?>" name="altura_banner">
+								</div>
+								<div class="col-2">
+									<label class="input">Velocidade: (em ms)</label>
+									<input type="text" value="<?php echo $banners['config']['velocidade'] ?>" name="altura_banner">
+								</div>
+
+								<div style="margin-bottom: 25px;" class="col-12"></div>
+
+								<?php
+								for ($i = 1; $i <= 8; $i++) {
+								    echo '<!-- banner ' . str_pad($i, 2, '0', STR_PAD_LEFT) . ' -->';
+								    echo '<div class="row">';
+								    echo '<div style="margin-top: 10px;" class="col-3">';
+								    echo '<label class="input">Título ALT: </label>';
+								    echo '<input value="' . (isset($banners['banners'][$i]['titulo']) ? $banners['banners'][$i]['titulo'] : '') . '" type="url" name="banners[' . $i . '][titulo]"><br>';
+								    echo '</div>';
+								    echo '<div style="margin-top: 10px;" class="col-3">';
+								    echo '<label class="input">Imagem: </label>';
+								    echo '<input value="' . (isset($banners['banners'][$i]['imagem']) ? $banners['banners'][$i]['imagem'] : '') . '" type="url" name="banners[' . $i . '][imagem]"><br>';
+								    echo '</div>';
+								    echo '<div style="margin-top: 10px;" class="col-3">';
+								    echo '<label class="input">Link: </label>';
+								    echo '<select name="banners[' . $i . '][target]">';
+								    echo '<option ' . ((isset($banners['banners'][$i]['target']) && $banners['banners'][$i]['target'] == '_self') ? 'selected' : '') . ' value="_self">Abrir na mesma página</option>';
+								    echo '<option ' . ((isset($banners['banners'][$i]['target']) && $banners['banners'][$i]['target'] == '_blank') ? 'selected' : '') . ' value="_blank">Abrir em nova página</option>';
+								    echo '</select>';
+								    echo '</div>';
+								    echo '<div style="margin-top: 10px;" class="col-3">';
+								    echo '<label class="input">Link: </label>';
+								    echo '<input value="' . (isset($banners['banners'][$i]['link']) ? $banners['banners'][$i]['link'] : '') . '" type="url" name="banners[' . $i . '][link]"><br>';
+								    echo '</div>';
+								    echo '</div>';
+								}
+								?>
+
 							</div>
 							<div style="margin-top: 35px;" class="row">
 							    <div class="col-12">

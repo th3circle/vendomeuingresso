@@ -50,6 +50,7 @@ if (isset($_POST['pay'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../assets/css/geralVars.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/consumer/evento.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <?php if (isMobileDevice()) { require "../app/topbar_mobile.php"; } else { require "../app/topbar.php"; } ?>
@@ -115,7 +116,7 @@ if (isset($_POST['pay'])) {
 							<i class="fa-regular fa-calendar"></i> 
 							Adicionar na agenda
 						</button></a>
-						<a><button id="shareButton" class="act">
+						<a><button onclick="addShare('<?php echo $event['id'] ?>')" id="shareButton" class="act">
 							<i class="fa-regular fa-share-from-square"></i> 
 							Compartilhar
 						</button></a>
@@ -316,6 +317,19 @@ if (isset($_POST['pay'])) {
 <?php require "../app/footer.php"; ?>
 </body>
 <script>
+	function addShare(eventId) {
+	    $.ajax({
+	        type: "POST",
+	        url: "./addClick.php",
+	        data: { event_id: eventId },
+	        success: function(response) {
+	            console.log("Compartilhamento registrado com sucesso.");
+	        },
+	        error: function(xhr, status, error) {
+	            console.error("Erro ao registrar o compartilhamento: " + error);
+	        }
+	    });
+	}
     document.getElementById('shareButton').addEventListener('click', function() {
         if (navigator.share) {
             navigator.share({

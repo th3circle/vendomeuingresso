@@ -1,3 +1,14 @@
+<?php 
+
+if (isMobileDevice()) {
+
+    echo "<script>alert('Para acessar as funções de administração do sistema, acesse através de um computador.')</script>";
+    echo '<script type="text/javascript">window.location = "' . $config['app_local'] . '";</script>';
+    exit;
+}
+
+?>
+
 <style>
 	:root {
 		--primaria: #1400FF !important;
@@ -5,6 +16,9 @@
 	}
 	body {
 		padding: 100px 50px 50px calc(250px + 50px) !important;
+	}
+	hr {
+		height: 0px !important;
 	}
 	div.leftbar {
 		box-shadow: 15px 0px 54px -5px #00000010;
@@ -15,6 +29,18 @@
 		width: 250px;
 		left: 0;
 		top: 0;
+	}
+	.dt-button {
+		background: transparent !important;
+		border-radius: 15px !important;
+		color: #000000ae;
+		margin-bottom: 15px !important;
+		transition: all 200ms !important;
+	}
+	.dt-button:hover {
+		background: var(--primaria) !important;
+		color: white !important;
+		border-color: var(--primaria) !important;
 	}
 	.leftbarContent {
 		padding: 50px 35px;
@@ -41,6 +67,24 @@
 	.left_links .leftIcon{
 		text-align: center;
 		padding-right: 0px;
+	}
+	input[type=search] {
+		border-radius: 15px !important;
+		border-color: #00000060 !important;
+		padding: 20px 15px !important;
+		margin-left: 15px !important;
+	}
+	table.dataTable {
+		margin-top: 50px !important;
+		border-bottom: 0px !important;
+		top: 50px !important;
+	}
+	.pagination-link,
+	.dataTables_info {
+		font-size: 0.8rem !important;
+	}
+	.dataTables_info {
+		color: #00000040 !important;
 	}
 	.linkText {
 		list-style-type: none;
@@ -191,6 +235,48 @@
 						</div>		
 						<div class="col-sm rightText">
 							<li class="linkText align">Produtores</li>
+						</div>
+					</div>
+				</div>
+
+				<div onclick="window.location.href='<?php echo $config['app_local'] ?>/superadmin/revendedores'" 
+					class="left_links <?php if ($page_name == 'Revendedores') { echo 'active_leftLink'; } ?>">
+					<div class="row">
+						<div class="col-3 leftIcon">
+							<div class="align">
+								<i class="fa-solid fa-user-group fa-xs"></i>
+							</div>
+						</div>		
+						<div class="col-sm rightText">
+							<li class="linkText align">Revendedores</li>
+						</div>
+					</div>
+				</div>
+
+				<div onclick="window.location.href='<?php echo $config['app_local'] ?>/superadmin/compradores'" 
+					class="left_links <?php if ($page_name == 'Compradores') { echo 'active_leftLink'; } ?>">
+					<div class="row">
+						<div class="col-3 leftIcon">
+							<div class="align">
+								<i class="fa-solid fa-user-group fa-xs"></i>
+							</div>
+						</div>		
+						<div class="col-sm rightText">
+							<li class="linkText align">Compradores</li>
+						</div>
+					</div>
+				</div>
+
+				<div onclick="window.location.href='<?php echo $config['app_local'] ?>/superadmin/saques'" 
+					class="left_links <?php if ($page_name == 'Gerenciar Saques') { echo 'active_leftLink'; } ?>">
+					<div class="row">
+						<div class="col-3 leftIcon">
+							<div class="align">
+								<i class="fa-solid fa-wallet fa-xs"></i>
+							</div>
+						</div>		
+						<div class="col-sm rightText">
+							<li class="linkText align">Saques</li>
 						</div>
 					</div>
 				</div>
