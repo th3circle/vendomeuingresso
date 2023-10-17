@@ -1,6 +1,10 @@
 <?php 
 
-if (isMobileDevice()) {
+function isMobileDeviceTwo() {
+    return preg_match("/(android|blackberry|iphone|ipod|palm|pocket|symbian|windows ce|windows phone|mobile)/i", $_SERVER["HTTP_USER_AGENT"]);
+}
+
+if (isMobileDeviceTwo()) {
 
     echo "<script>alert('Para acessar as funções de administração do sistema, acesse através de um computador.')</script>";
     echo '<script type="text/javascript">window.location = "' . $config['app_local'] . '";</script>';
