@@ -120,9 +120,70 @@
 				</div>
 			</div>
 			<div class="col-3">
+
+				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+				<h1 class="title">Compradores/Cadastros:</h1>
+				
+				<div class="module">
+					<canvas id="graficoQntd"></canvas>
+				</div>
+
+				<script>
+				var ctx = document.getElementById('graficoQntd').getContext('2d');
+
+				<?php 
+
+					$query = "SELECT COUNT(*) AS total_registros FROM producer WHERE vinculo_tipo = 'Admin'";
+					$result = $conn->query($query);
+					if ($result) {
+					    $row = $result->fetch_assoc();
+					    $produtores = $row["total_registros"];
+					}
+
+					$query = "SELECT COUNT(*) AS total_registros
+								FROM users
+								INNER JOIN events ON users.id = events.business_id
+								WHERE events.tipo = 2;";
+					$result = $conn->query($query);
+					if ($result) {
+					    $row = $result->fetch_assoc();
+					    $revendedores = $row["total_registros"];
+					}
+				 
+					$query = "SELECT COUNT(*) AS total_registros FROM users";
+					$result = $conn->query($query);
+					if ($result) {
+					    $row = $result->fetch_assoc();
+					    $compradores = $row["total_registros"];
+					}
+
+				?>
+
+				var data = {
+				    labels: ['Produtores', 'Revendedores', 'Compradores'],
+				    datasets: [{
+				        label: "Total: ",
+				        data: [<?php echo $produtores ?>, <?php echo $revendedores ?>, <?php echo $compradores ?>],
+				    }]
+				};
+
+				var options = {
+				    scales: {
+				        y: {
+				            beginAtZero: true
+				        }
+				    }
+				};
+
+				var myChart = new Chart(ctx, {
+				    type: 'doughnut',
+				    data: data,
+				    options: options
+				});
+				</script>
 				
 				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-				<h1 class="title">Usuários por estado:</h1>
+				<h1 style="margin-top: 25px" class="title">Usuários por estado:</h1>
 
 				<div class="module">
 					<canvas id="graficoLucro"></canvas>

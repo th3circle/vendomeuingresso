@@ -67,58 +67,123 @@
 		</div>
 		</form>
 		<div style="margin-top: 20px;" class="row">
-			<div class="module">
-				<table class="table">
-					<thead>
-						<tr>
-							<th style="text-align: left;" scope="col"></th>
-							<th style="text-align: left;" scope="col">Nome</th>
-							<th style="text-align: left;" scope="col">E-mail</th>
-							<th style="text-align: center;" scope="col">CPF</th>
-							<th style="text-align: center;" scope="col">Telefone</th>
-							<th style="text-align: center;" scope="col">Cidade</th>
-							<th style="text-align: left;" scope="col"></th>
-						</tr>
-					</thead>
-					<tbody>
+			<div class="col-9">
+				<h1 class="title">Revendedores:</h1>
+				<div class="module">
+					<table class="table">
+						<thead>
+							<tr>
+								<th style="text-align: left;" scope="col"></th>
+								<th style="text-align: left;" scope="col">Nome</th>
+								<th style="text-align: left;" scope="col">E-mail</th>
+								<th style="text-align: center;" scope="col">CPF</th>
+								<th style="text-align: center;" scope="col">Telefone</th>
+								<th style="text-align: center;" scope="col">Cidade</th>
+								<th style="text-align: left;" scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
 
-						<?php // [Lancelot]: faz a listagem dos eventos do usuário
-						$consulta = "SELECT users.*
-									 FROM users
-									 INNER JOIN events ON users.id = events.business_id
-									 WHERE events.tipo = 2;";
-						$con = $conn->query($consulta) or die($conn->error);
-						while($dado = $con->fetch_array()) { ?>
-						<tr>
-						    <th class="align-middle" style="width: 7%; text-align: left">
-						        <?php echo $dado['id']; ?>
-						    </th>
-						    <td class="align-middle" style="text-align: left">
-						        <?php echo ucwords($dado['nome'] . ' ' . $dado['surname']); ?>
-						    </td>
-						    <td class="align-middle" style="text-align: left">
-						        <?php echo empty($dado['email']) ? '--' : $dado['email']; ?>
-						    </td>
-						    <td class="align-middle" style="text-align: center">
-						        <?php echo empty($dado['cpf_cnpj']) ? '--' : $dado['cpf_cnpj']; ?>
-						    </td>
-						    <td class="align-middle" style="width: 15%; text-align: center">
-						        <?php echo empty($dado['telefone']) ? '--' : $dado['telefone']; ?>
-						    </td>
-						    <td class="align-middle" style="text-align: center">
-						        <?php echo empty($dado['address_cidade'] AND $dado['address_estado']) ? '--' : $dado['address_cidade'] . ', ' . $dado['address_estado']; ?>
-						    </td>
-						    <td class="align-middle" style="width: 5%; text-align: right">
-						    	<!-- <a target="_blank" href="<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id'] ?>"><i style="margin-left: 5px;" class="fa-regular fa-eye fa-sm"></i></a> -->
-						    	<i onclick="return confirm('Certeza? Esta ação é irreversível.')" style="margin-left: 5px;" class="fa-regular fa-trash-can fa-sm"></i>
-						    	<a href="#"><i style="margin-left: 5px;" class="fa-regular fa-eye fa-sm"></i></a>
-						    </td>
-						</tr>
-						<?php } ?>
+							<?php // [Lancelot]: faz a listagem dos eventos do usuário
+							$consulta = "SELECT users.*
+										 FROM users
+										 INNER JOIN events ON users.id = events.business_id
+										 WHERE events.tipo = 2;";
+							$con = $conn->query($consulta) or die($conn->error);
+							while($dado = $con->fetch_array()) { ?>
+							<tr>
+							    <th class="align-middle" style="width: 7%; text-align: left">
+							        <?php echo $dado['id']; ?>
+							    </th>
+							    <td class="align-middle" style="text-align: left">
+							        <?php echo ucwords($dado['nome'] . ' ' . $dado['surname']); ?>
+							    </td>
+							    <td class="align-middle" style="text-align: left">
+							        <?php echo empty($dado['email']) ? '--' : $dado['email']; ?>
+							    </td>
+							    <td class="align-middle" style="text-align: center">
+							        <?php echo empty($dado['cpf_cnpj']) ? '--' : $dado['cpf_cnpj']; ?>
+							    </td>
+							    <td class="align-middle" style="width: 15%; text-align: center">
+							        <?php echo empty($dado['telefone']) ? '--' : $dado['telefone']; ?>
+							    </td>
+							    <td class="align-middle" style="text-align: center">
+							        <?php echo empty($dado['address_cidade'] AND $dado['address_estado']) ? '--' : $dado['address_cidade'] . ', ' . $dado['address_estado']; ?>
+							    </td>
+							    <td class="align-middle" style="width: 5%; text-align: right">
+							    	<!-- <a target="_blank" href="<?php echo $config['app_local'] ?>/evento/?id=<?php echo $dado['id'] ?>"><i style="margin-left: 5px;" class="fa-regular fa-eye fa-sm"></i></a> -->
+							    	<i onclick="return confirm('Certeza? Esta ação é irreversível.')" style="margin-left: 5px;" class="fa-regular fa-trash-can fa-sm"></i>
+							    	<a href="#"><i style="margin-left: 5px;" class="fa-regular fa-eye fa-sm"></i></a>
+							    </td>
+							</tr>
+							<?php } ?>
 
 
-					</tbody>
-				</table>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-3">
+				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+				<h1 class="title">Revendedores/Cadastros:</h1>
+				
+				<div class="module">
+					<canvas id="graficoQntd"></canvas>
+				</div>
+
+				<script>
+				var ctx = document.getElementById('graficoQntd').getContext('2d');
+
+				<?php 
+
+					$query = "SELECT COUNT(*) AS total_registros FROM producer WHERE vinculo_tipo = 'Admin'";
+					$result = $conn->query($query);
+					if ($result) {
+					    $row = $result->fetch_assoc();
+					    $produtores = $row["total_registros"];
+					}
+
+					$query = "SELECT COUNT(*) AS total_registros
+								FROM users
+								INNER JOIN events ON users.id = events.business_id
+								WHERE events.tipo = 2;";
+					$result = $conn->query($query);
+					if ($result) {
+					    $row = $result->fetch_assoc();
+					    $revendedores = $row["total_registros"];
+					}
+				 
+					$query = "SELECT COUNT(*) AS total_registros FROM users";
+					$result = $conn->query($query);
+					if ($result) {
+					    $row = $result->fetch_assoc();
+					    $compradores = $row["total_registros"];
+					}
+
+				?>
+
+				var data = {
+				    labels: ['Produtores', 'Revendedores', 'Compradores'],
+				    datasets: [{
+				        label: "Total: ",
+				        data: [<?php echo $produtores ?>, <?php echo $revendedores ?>, <?php echo $compradores ?>],
+				    }]
+				};
+
+				var options = {
+				    scales: {
+				        y: {
+				            beginAtZero: true
+				        }
+				    }
+				};
+
+				var myChart = new Chart(ctx, {
+				    type: 'doughnut',
+				    data: data,
+				    options: options
+				});
+				</script>
 			</div>
 		</div>
 	</div>
